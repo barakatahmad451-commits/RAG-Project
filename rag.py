@@ -52,3 +52,6 @@ def ask_question(question):
     })
 
     return response.content
+
+print("Mistral key loaded:",
+      st.secrets["MISTRAL_API_KEY"][:8])

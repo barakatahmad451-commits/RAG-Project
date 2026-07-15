@@ -4,6 +4,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_mistralai import ChatMistralAI
 from langchain_core.prompts import ChatPromptTemplate
+import streamlit as st
 
 load_dotenv()
 
@@ -22,7 +23,8 @@ retriever = vectorstore.as_retriever(
 )
 
 llm = ChatMistralAI(
-    model="mistral-small-latest"
+    model="mistral-small-latest",
+    api_key=st.secrets["MISTRAL_API_KEY"]
 )
 
 prompt = ChatPromptTemplate.from_template("""
